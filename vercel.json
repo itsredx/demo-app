@@ -23,6 +23,8 @@
       "src": "/static/(.*)",
       "dest": "/static/$1"
     },
+      {
+      "src": "/(.*)",
             "dest": "mysite/wsgi.py"
 
         }
