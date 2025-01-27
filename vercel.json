@@ -8,18 +8,26 @@
 
         "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
 
-    }],
+    },
 
-    "routes": [
-
-        {
-
-            "src": "/(.*)",
-
+   {
+      "src": "build_files.sh",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "ui/staticfiles"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
             "dest": "mysite/wsgi.py"
 
         }
 
-    ]
+    ],
+    "outputDirectory": "ui/staticfiles"
 
 }
